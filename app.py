@@ -480,7 +480,42 @@ with tab2:
               Milk revenue: Rs {daily_rev_*30:,.0f} &nbsp;&nbsp;&nbsp;
               Net profit: <strong>Rs {monthly_net:,.0f}</strong>
             </div>""", unsafe_allow_html=True)
+                        # ── FEEDING SCHEDULER ─────────────────────
+            st.markdown("<div style='margin-top:18px'></div>", unsafe_allow_html=True)
+            st.markdown("""
+            <div class="section-title">Smart Feeding Scheduler</div>
+            """, unsafe_allow_html=True)
 
+            morning_feed = round(pred_feed * 0.4, 2)
+            afternoon_feed = round(pred_feed * 0.2, 2)
+            evening_feed = round(pred_feed * 0.4, 2)
+
+            schedule_df = pd.DataFrame({
+                "Time": ["6:00 AM", "1:00 PM", "7:00 PM"],
+                "Feed Quantity (kg)": [
+                    morning_feed,
+                    afternoon_feed,
+                    evening_feed
+                ],
+                "Feed Type": [
+                    "Roughage + Minerals",
+                    "Light Concentrate",
+                    "Roughage + Concentrate"
+                ]
+            })
+
+            st.dataframe(schedule_df, use_container_width=True)
+
+            # Water recommendation
+            water_needed = round(pred_feed * 4.5, 1)
+
+            st.markdown(f"""
+            <div class="strip strip-green">
+              <strong>Daily Care Recommendation</strong><br>
+              Recommended water intake: <strong>{water_needed} liters/day</strong><br>
+              Best feeding practice: Divide meals into 3 sessions for better digestion and milk productivity.
+            </div>
+            """, unsafe_allow_html=True)
         else:
             feat_names  = ["Weight","Age","Milk Yield","Temperature","Species","Breed","State"]
             importances = gbr.feature_importances_
