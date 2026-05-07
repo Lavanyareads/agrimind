@@ -34,8 +34,8 @@ AgriMind is a comprehensive, multi-tenant web application designed to help farme
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YourUsername/AgriMind.git
-cd AgriMind
+git clone https://github.com/Lavanyareads/agrimind.git
+cd agrimind
 ```
 
 ### 2. Install dependencies
@@ -58,6 +58,10 @@ streamlit run app.py
 
 ---
 
+## Or access the app online at: https://agrimind-feedingscheduler.streamlit.app/
+
+---
+
 ## 📂 Project Structure
 
 ```text
@@ -77,7 +81,3 @@ agrimind/
 │   └── 05_Growth_Analysis.py
 └── utils/                            # Custom CSS and styling tokens
 ```
-
----
-**Developed for Engineering Project Design (EEM-283-COM)**
-*Team Members: Lavanya Nimbalkar, Aishwarya Pawar, Gargi Mane, Aanadi Masal, Astha Nakat*
